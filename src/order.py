@@ -63,3 +63,14 @@ class Order:
             if order.id == id:
                 return order
         return None
+
+    def delete_order(id: int):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        for order in Order.orders:
+            if order.id == id:
+                Order.orders.remove(order)
+                Queries.delete_order(id)
+                del order
+                return True
+        raise ValueError("There is no order with this id")
