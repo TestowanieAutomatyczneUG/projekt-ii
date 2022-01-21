@@ -28,6 +28,8 @@ class TestsParametrizedClient(unittest.TestCase):
         order = Order(mock_get_client_orders()[0][0], mock_get_client_orders()[0][1])
         self.client.orders.append(order)
 
+    def test_client_init_wrong_lastName(self):
+        assert_that(Client).raises(ValueError).when_called_with(self.client.id, self.client.firstName, self.wrongValueString, self.client.email)
 
 
     def tearDown(self):
