@@ -43,23 +43,3 @@ class Order:
             if item.id == itemId:
                 return True
         return False
-
-    def get_client(self):
-        return Queries.find_client(self.clientId)
-
-    def get_item(self):
-        result = []
-        for item in self.items:
-            result.append((item.id, item.name, item.value))
-        return result
-
-    def get_all_orders():
-        return Order.orders
-
-    def find_order(id: int):
-        if type(id) is not int:
-            raise ValueError("id is not int")
-        for order in Order.orders:
-            if order.id == id:
-                return order
-        return None
