@@ -22,6 +22,9 @@ class TestsParametrizedOrder(unittest.TestCase):
         Order.ordery = []
         self.order = Order(mock_get_orders()[0][0], mock_get_orders()[0][1])
 
+    def test_order_init_wrong_id_one(self):
+        assert_that(Order).raises(ValueError).when_called_with(self.wrongValueInt, self.wrongValueFloat)
+
 
     def tearDown(self):
         del self.order
