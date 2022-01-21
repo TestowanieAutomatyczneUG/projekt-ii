@@ -21,7 +21,7 @@ class TestsParametrizedItem(unittest.TestCase):
         def mock_get_items():
             return [(709, "cosiek", 177.0)]
         Queries.find_item = Mock(return_value=(7, "Bob", 222))
-        Item.itemy = []
+        Item.items = []
         self.item = Item(mock_get_items()[0][0], mock_get_items()[0][1], mock_get_items()[0][2])
 
     def test_edit_item_name_wrong(self):
