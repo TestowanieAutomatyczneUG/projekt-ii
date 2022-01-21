@@ -19,3 +19,6 @@ class Item:
 
     def add_item(self):
         Queries.add_item(self.id, self.name, self.value)
+
+    def delete_item(self):
+        Queries.delete_item(self.id)
