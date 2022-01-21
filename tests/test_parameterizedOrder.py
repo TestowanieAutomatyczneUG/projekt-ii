@@ -34,6 +34,9 @@ class TestsParametrizedOrder(unittest.TestCase):
     def test_delete_order_wrong_id_two(self):
         assert_that(Order.delete_order).raises(ValueError).when_called_with(self.wrongValueFloat)
 
+    def test_get_order_wrong_id_one(self):
+        assert_that(Order.find_order).raises(ValueError).when_called_with(self.wrongValueInt)
+
 
     def tearDown(self):
         del self.order
