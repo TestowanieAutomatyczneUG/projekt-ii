@@ -37,9 +37,14 @@ class Item:
         self.value = float(value)
         Queries.edytuj_item(self.id, self.name, self.value)
 
-    def all_items():
-        return Item.items
-
     def get_all_items():
         result = Item.items
         return result
+
+    def find_item(id):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        for item in Item.items:
+            if item.id == id:
+                return item
+        return None
