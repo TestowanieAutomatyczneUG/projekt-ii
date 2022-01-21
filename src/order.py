@@ -46,3 +46,9 @@ class Order:
 
     def get_client(self):
         return Queries.find_client(self.clientId)
+
+    def get_item(self):
+        result = []
+        for item in self.items:
+            result.append((item.id, item.name, item.value))
+        return result
