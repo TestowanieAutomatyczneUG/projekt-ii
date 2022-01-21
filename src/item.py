@@ -22,3 +22,9 @@ class Item:
 
     def delete_item(self):
         Queries.delete_item(self.id)
+
+    def edit_name(self, name):
+        if type(name) is not str or not name:
+            raise ValueError("name is not string")
+        self.name = name
+        Queries.edit_item(self.id, self.name, self.value)
