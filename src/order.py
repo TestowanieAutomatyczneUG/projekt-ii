@@ -25,3 +25,13 @@ class Order:
             if item.id == itemId:
                 self.items.append(item)
                 Queries.add_item_to_order(self.id, itemId)
+
+    def delete_item(self, itemId: int):
+        if type(itemId) is not int:
+            raise ValueError("itemId is not int")
+        for item in self.items:
+            if item.id == itemId:
+                self.items.remove(item)
+                Queries.delete_item_from_order(self.id, itemId)
+                return True
+        raise ValueError("There is no item with this id")
