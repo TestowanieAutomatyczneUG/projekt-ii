@@ -45,6 +45,9 @@ class TestsParametrizedClient(unittest.TestCase):
     def test_edit_client_lastname_wrong_lastname(self):
         assert_that(self.client.edit_lastName).raises(ValueError).when_called_with(self.wrongValueString)
 
+    def test_client_remove_order_wrong_id(self):
+        assert_that(self.client.delete_order).raises(ValueError).when_called_with(self.wrongValueInt)
+
 
 
     def tearDown(self):
