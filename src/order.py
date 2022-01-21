@@ -35,3 +35,11 @@ class Order:
                 Queries.delete_item_from_order(self.id, itemId)
                 return True
         raise ValueError("There is no item with this id")
+
+    def is_id_leading_to_item(self, itemId: int):
+        if type(itemId) is not int:
+            raise ValueError("itemId is not int")
+        for item in self.items:
+            if item.id == itemId:
+                return True
+        return False
