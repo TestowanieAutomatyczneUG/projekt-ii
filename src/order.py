@@ -15,3 +15,13 @@ class Order:
         self.clientId = clientId
         self.items = []
         Order.orders.append(self)
+
+    def add_item(self, itemId: int):
+        if type(itemId) is not int:
+            raise ValueError("itemId is not int")
+        if not Queries.find_item(itemId):
+            raise ValueError("There is no item with this id")
+        for item in Item.items:
+            if item.id == itemId:
+                self.items.append(item)
+                Queries.add_item_to_order(self.id, itemId)
