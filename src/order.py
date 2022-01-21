@@ -36,7 +36,7 @@ class Order:
                 return True
         raise ValueError("There is no item with this id")
 
-    def is_id_leading_to_item(self, itemId: int):
+    def is_it_item(self, itemId: int):
         if type(itemId) is not int:
             raise ValueError("itemId is not int")
         for item in self.items:
@@ -44,16 +44,16 @@ class Order:
                 return True
         return False
 
-    def get_client(self):
+    def client_data(self):
         return Queries.find_client(self.clientId)
 
-    def get_item(self):
+    def item_data(self):
         result = []
         for item in self.items:
             result.append((item.id, item.name, item.value))
         return result
 
-    def get_all_orders():
+    def all_orders():
         return Order.orders
 
     def find_order(id: int):

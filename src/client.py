@@ -26,3 +26,9 @@ class Client:
             raise ValueError("id is not int")
         self.orders.append(Order(id, self.id))
         Queries.add_order(id, self.id)
+
+    def delete_order(self, id):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        self.orders.remove(Order.find_order(id))
+        Order.delete_order(id)

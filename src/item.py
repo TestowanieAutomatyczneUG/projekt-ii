@@ -37,6 +37,9 @@ class Item:
         self.value = float(value)
         Queries.edytuj_item(self.id, self.name, self.value)
 
+    def all_items():
+        return Item.items
+
     def get_all_items():
         result = Item.items
         return result
