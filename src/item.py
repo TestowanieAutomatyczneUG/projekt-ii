@@ -16,3 +16,6 @@ class Item:
         self.name = name
         self.value = float(value)
         Item.items.append(self)
+
+    def add_item(self):
+        Queries.add_item(self.id, self.name, self.value)
