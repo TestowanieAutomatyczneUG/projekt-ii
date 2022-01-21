@@ -20,6 +20,7 @@ class TestsParametrizedOrder(unittest.TestCase):
         def mock_get_orders():
             return [(709, 177)]
         Order.ordery = []
+        Queries.find_order = Mock(return_value=(7, 8))
         self.order = Order(mock_get_orders()[0][0], mock_get_orders()[0][1])
 
     def test_order_init_wrong_id_one(self):
