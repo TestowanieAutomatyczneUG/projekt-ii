@@ -38,3 +38,9 @@ class Client:
             raise ValueError("firstName is not string")
         self.firstName = firstName
         Queries.edit_client(self.id, self.firstName, self.lastName, self.email)
+
+    def edit_lastName(self, lastName):
+        if type(lastName) is not str or not lastName:
+            raise ValueError("lastName is not string")
+        self.lastName = lastName
+        Queries.edit_client(self.id, self.firstName, self.lastName, self.email)
