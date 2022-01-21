@@ -48,3 +48,14 @@ class Item:
             if item.id == id:
                 return item
         return None
+
+    def delete_item(id):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        for item in Item.items:
+            if item.id == id:
+                Item.items.remove(item)
+                Queries.delete_item(id)
+                del item
+                return True
+        raise ValueError("There is no item with this id")
