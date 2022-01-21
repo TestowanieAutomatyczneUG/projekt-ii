@@ -28,3 +28,11 @@ class Item:
             raise ValueError("name is not string")
         self.name = name
         Queries.edit_item(self.id, self.name, self.value)
+
+    def edit_value(self, value):
+        if type(value) is not float and type(value) is not int:
+            raise ValueError("value is not int")
+        if value < 0:
+            raise ValueError("value is not above 0")
+        self.value = float(value)
+        Queries.edytuj_item(self.id, self.name, self.value)
