@@ -52,3 +52,6 @@ class Order:
         for item in self.items:
             result.append((item.id, item.name, item.value))
         return result
+
+    def get_all_orders():
+        return Order.orders
