@@ -55,3 +55,11 @@ class Order:
 
     def get_all_orders():
         return Order.orders
+
+    def find_order(id: int):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        for order in Order.orders:
+            if order.id == id:
+                return order
+        return None
