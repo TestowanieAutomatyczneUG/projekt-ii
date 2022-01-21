@@ -32,3 +32,9 @@ class Client:
             raise ValueError("id is not int")
         self.orders.remove(Order.find_order(id))
         Order.delete_order(id)
+
+    def edit_firstName(self, firstName):
+        if type(firstName) is not str or not firstName:
+            raise ValueError("firstName is not string")
+        self.firstName = firstName
+        Queries.edit_client(self.id, self.firstName, self.lastName, self.email)
