@@ -32,5 +32,10 @@ class TestsParametrizedItem(unittest.TestCase):
     def test_delete_item_wrong_id(self):
         assert_that(Item.delete_item).raises(ValueError).when_called_with(self.wrongValueInt)
 
+    def test_get_item_wrong_id(self):
+        assert_that(Item.find_item).raises(ValueError).when_called_with(self.wrongValueInt)
+
+
+
     def tearDown(self):
         del self.item
