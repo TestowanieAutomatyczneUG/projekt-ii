@@ -50,3 +50,14 @@ class Client:
             raise ValueError("email is not string")
         self.email = email
         Queries.edit_client(self.id, self.firstName, self.lastName, self.email)
+
+    def orders_data(self):
+        result = []
+        for order in self.orders:
+            items = []
+            id = Queries.find_items_from_order(order.id)
+            for item in id:
+                item = Queries.find_item(item[1])
+                items.append(item)
+            result.append(items)
+        return result
