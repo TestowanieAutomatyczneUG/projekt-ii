@@ -43,3 +43,6 @@ class Order:
             if item.id == itemId:
                 return True
         return False
+
+    def get_client(self):
+        return Queries.find_client(self.clientId)
