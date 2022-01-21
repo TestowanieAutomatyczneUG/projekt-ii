@@ -61,3 +61,38 @@ class Client:
                 items.append(item)
             result.append(items)
         return result
+
+    def all_clients():
+        return Client.clients
+
+    def all_clients_data():
+        result = []
+        for client in Client.clients:
+            result.append((client.id, client.firstName, client.lastName, client.email))
+        return result
+
+    def find_client(id):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        for client in Client.clients:
+            if client.id == id:
+                return client
+        return None
+
+    def delete_client(id):
+        if type(id) is not int:
+            raise ValueError("id is not int")
+        for client in Client.clients:
+            if client.id == id:
+                Client.clients.remove(client)
+                del client
+                Queries.delete_client(id)
+                return True
+        raise ValueError("There is no client with this id")
+
+    def save_to_file():
+        with open("data/clients.json", "w") as file:
+            result = []
+            for client in Client.clients:
+                result.append(client)
+            file.write(json.dumps(result))
