@@ -22,14 +22,20 @@ class TestsMock(unittest.TestCase):
         self.mockClass.get_orders = MagicMock(return_value=[(1,2),(2,1),(1,3)])
         assert_that(self.mockClass.get_orders()).is_equal_to([(1,2),(2,1),(1,3)])
     def test_magicMockClass_get_orders_from_item_by_id(self):
-        self.mockClass.get_orders_from_item_by_id = MagicMock(return_value=[(1,2),(1,3)])
-        assert_that(self.mockClass.get_orders_from_item_by_id(1)).is_equal_to([(1,2),(1,3)])
+        self.mockClass.get_orders_from_item_by_id = MagicMock(return_value=[(1,"Bob",777)])
+        assert_that(self.mockClass.get_orders_from_item_by_id(1)).is_equal_to([(1,"Bob",777)])
     def test_magicMockClass_get_items_from_orders_by_id(self):
-        self.mockClass.get_items_from_orders_by_id = MagicMock(return_value=[(1,2)])
-        assert_that(self.mockClass.get_items_from_orders_by_id(2)).is_equal_to([(1,2)])
+        self.mockClass.get_items_from_orders_by_id = MagicMock(return_value=[(709, "cosiek", 177.0)])
+        assert_that(self.mockClass.get_items_from_orders_by_id(709)).is_equal_to([(709, "cosiek", 177.0)])
     def test_magicMockClass_get_order_by_id(self):
         self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2)])
     def test_get_client_orders_by_id(self):
         self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2),(1,3)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2),(1,3)])
+    def get_client_by_id(self):
+        self.mockClass.get_client_by_id = MagicMock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
+        assert_that(self.mockClass.get_client_by_id(7)).is_equal_to((7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
+    def get_item_by_id(self):
+        self.mockClass.get_client_by_id = MagicMock(return_value=(709, "cosiek", 177.0))
+        assert_that(self.mockClass.get_client_by_id(709)).is_equal_to((709, "cosiek", 177.0))
