@@ -45,3 +45,6 @@ class TestsMock(unittest.TestCase):
     def test_add_client(self):
         self.mockClass.add_client = MagicMock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
         assert_that(self.mockClass.add_client()).is_equal_to((7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
+    def add_item_to_order(self):
+        self.mockClass.add_client = MagicMock(return_value=())
+        assert_that(self.mockClass.add_client(2,3)).is_equal_to(())
