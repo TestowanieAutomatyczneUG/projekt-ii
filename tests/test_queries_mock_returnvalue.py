@@ -72,3 +72,6 @@ class TestsMock(unittest.TestCase):
     def test_magicMockClass_delete_order(self):
         self.mockClass.delete_order = MagicMock(return_value=())
         assert_that(self.mockClass.delete_order(1)).is_equal_to(())
+    def test_magicMockClass_delete_client(self):
+        self.mockClass.delete_client = MagicMock(return_value=())
+        assert_that(self.mockClass.delete_client(3)).is_equal_to(())
