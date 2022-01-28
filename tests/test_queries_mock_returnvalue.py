@@ -33,9 +33,9 @@ class TestsMock(unittest.TestCase):
     def test_get_client_orders_by_id(self):
         self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2),(1,3)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2),(1,3)])
-    def get_client_by_id(self):
+    def test_get_client_by_id(self):
         self.mockClass.get_client_by_id = MagicMock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
         assert_that(self.mockClass.get_client_by_id(7)).is_equal_to((7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
-    def get_item_by_id(self):
+    def test_get_item_by_id(self):
         self.mockClass.get_client_by_id = MagicMock(return_value=(709, "cosiek", 177.0))
         assert_that(self.mockClass.get_client_by_id(709)).is_equal_to((709, "cosiek", 177.0))
