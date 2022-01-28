@@ -24,8 +24,8 @@ class TestsMock(unittest.TestCase):
         self.mockClass.get_orders_from_item_by_id = Mock(return_value=[(1,"Bob",777)],side_effect=Exception("wrong id type"))
         assert_that(self.mockClass.get_orders_from_item_by_id).raises(Exception)
     def test_mockClass_get_items_from_orders_by_id(self):
-        self.mockClass.get_items_from_orders_by_id = Mock(return_value=[(709, "cosiek", 177.0)])
-        assert_that(self.mockClass.get_items_from_orders_by_id(709)).is_equal_to([(709, "cosiek", 177.0)])
+        self.mockClass.get_items_from_orders_by_id = Mock(return_value=[(709, "cosiek", 177.0)],side_effect=Exception("wrong id type"))
+        assert_that(self.mockClass.get_items_from_orders_by_id).raises(Exception)
     def test_mockClass_get_order_by_id(self):
         self.mockClass.get_order_by_id = Mock(return_value=[(1,2)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2)])
