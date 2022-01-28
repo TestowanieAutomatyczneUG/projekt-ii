@@ -19,8 +19,7 @@ class TestsParametrizedItem(unittest.TestCase):
 
     def setUp(self):
         def mock_get_items():
-            return [(709, "cosiek", 177.0)]
-        Queries.find_item = Mock(return_value=(7, "Bob", 222))
+            return [(709, "cosiek", 177.0)]#reczna atrapa
         Item.items = []
         self.item = Item(mock_get_items()[0][0], mock_get_items()[0][1], mock_get_items()[0][2])
 

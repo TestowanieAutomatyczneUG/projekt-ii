@@ -18,9 +18,9 @@ class TestsParametrizedClient(unittest.TestCase):
 
     def setUp(self):
         def mock_get_client_orders():
-            return [(1,2,3,4)]
+            return [(1,2,3,4)]#reczna atrapa
         def mock_get_clients():
-            return [(7, "Bob", "Bobinovich", "BobMonkeyGmailCom")]
+            return [(7, "Bob", "Bobinovich", "BobMonkeyGmailCom")]#reczna atrapa
         Queries.find_client = Mock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
         Client.clients = []
         Order.orders = []

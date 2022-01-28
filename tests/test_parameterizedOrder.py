@@ -18,9 +18,9 @@ class TestsParametrizedOrder(unittest.TestCase):
 
     def setUp(self):
         def mock_get_orders():
-            return [(709, 177)]
+            return [(709, 177)]#reczna atrapa
         Order.orders = []
-        Queries.find_order = Mock(return_value=(7, 8))
+        Queries.find_order = Mock(return_value=(7, 8))#atrapa z uzyciem return value
         self.order = Order(mock_get_orders()[0][0], mock_get_orders()[0][1])
 
     def test_order_init_wrong_id_one(self):
