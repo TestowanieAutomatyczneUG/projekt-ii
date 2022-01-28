@@ -30,3 +30,6 @@ class TestsMock(unittest.TestCase):
     def test_mockClass_get_order_by_id(self):
         self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2)])
+    def test_get_client_orders_by_id(self):
+        self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2),(1,3)])
+        assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2),(1,3)])
