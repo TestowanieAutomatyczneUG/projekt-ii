@@ -21,14 +21,14 @@ class TestsMock(unittest.TestCase):
         self.mockClass.get_orders = Mock(return_value=["(1,2),(2,1),(1,3)"],side_effect=Exception("wrong id type"))
         assert_that(self.mockClass.get_orders).raises(Exception)
     def test_mockClass_get_orders_from_item_by_id(self):
-        self.mockClass.get_orders_from_item_by_id = Mock(return_value=[(1,"Bob",777)],side_effect=Exception("wrong id type"))
+        self.mockClass.get_orders_from_item_by_id = Mock(return_value=[("1","Bob","777")],side_effect=Exception("wrong id type"))
         assert_that(self.mockClass.get_orders_from_item_by_id).raises(Exception)
     def test_mockClass_get_items_from_orders_by_id(self):
-        self.mockClass.get_items_from_orders_by_id = Mock(return_value=[(709, "cosiek", 177.0)],side_effect=Exception("wrong id type"))
+        self.mockClass.get_items_from_orders_by_id = Mock(return_value=[("709", "cosiek", "177.0")],side_effect=Exception("wrong id type"))
         assert_that(self.mockClass.get_items_from_orders_by_id).raises(Exception)
     def test_mockClass_get_order_by_id(self):
-        self.mockClass.get_order_by_id = Mock(return_value=[(1,2)])
-        assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2)])
+        self.mockClass.get_order_by_id = Mock(return_value=[("1","2")],side_effect=Exception("wrong id type"))
+        assert_that(self.mockClass.get_order_by_id).raises(Exception)
     def test_mockClass_get_client_orders_by_id(self):
         self.mockClass.get_order_by_id = Mock(return_value=[(1,2),(1,3)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2),(1,3)])
