@@ -1,5 +1,5 @@
 class Queries:
-    def get_clients(self,):
+    def get_clients(self):
         pass
     def get_items(self):
         pass
