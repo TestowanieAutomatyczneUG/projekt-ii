@@ -19,4 +19,5 @@ class TestsMock(unittest.TestCase):
         self.mockClass.get_items = MagicMock(return_value=[(1,"Bob",777),(2,"Bobin",73477)])
         assert_that(self.mockClass.get_items()).is_equal_to([(1,"Bob",777),(2,"Bobin",73477)])
     def test_mockClass_get_orders(self):
-        self.mockClass.get_orders = MagicMock(return_value=[])
+        self.mockClass.get_orders = MagicMock(return_value=[(1,2),(2,1)])
+        assert_that(self.mockClass.get_orders()).is_equal_to([(1,2),(2,1)])
