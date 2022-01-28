@@ -3,7 +3,7 @@ from src.queries import Queries
 from src.order import Order
 
 class Client:
-    def __init__(self, id, firstName, lastName, email):
+    def __init__(self, id: int, firstName:str, lastName:str, email:str):
         if type(id) is not int:
             raise ValueError("id is not int")
         if type(firstName) is not str or not firstName:
