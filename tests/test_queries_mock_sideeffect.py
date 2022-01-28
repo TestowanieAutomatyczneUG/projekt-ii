@@ -33,11 +33,11 @@ class TestsMock(unittest.TestCase):
         self.mockClass.get_order_by_id = Mock(return_value=["(1,2),(1,3)"],side_effect=Exception("wrong id type"))
         assert_that(self.mockClass.get_order_by_id).raises(Exception)
     def test_mockClass_get_client_by_id(self):
-        self.mockClass.get_client_by_id = Mock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"),side_effect=Exception("wrong id type"))
+        self.mockClass.get_client_by_id = Mock(return_value=("7", "Bob", "Bobinovich", "BobMonkeyGmailCom"),side_effect=Exception("wrong id type"))
         assert_that(self.mockClass.get_client_by_id).raises(Exception)
     def test_mockClass_get_item_by_id(self):
-        self.mockClass.get_client_by_id = Mock(return_value=(709, "cosiek", 177.0))
-        assert_that(self.mockClass.get_client_by_id(709)).is_equal_to((709, "cosiek", 177.0))
+        self.mockClass.get_client_by_id = Mock(return_value=("709", "cosiek", "177.0"),side_effect=Exception("wrong id type"))
+        assert_that(self.mockClass.get_client_by_id).raises(Exception)
     def test_mockClass_add_item(self):
         self.mockClass.add_item = Mock(return_value=(709, "cosiek", 177.0))
         assert_that(self.mockClass.add_item()).is_equal_to((709, "cosiek", 177.0))
