@@ -51,3 +51,6 @@ class TestsMock(unittest.TestCase):
     def test_magicMockClass_add_order(self):
         self.mockClass.add_order = MagicMock(return_value=(2,3))
         assert_that(self.mockClass.add_order()).is_equal_to((2,3))
+    def test_magicMockClass_delete_item_from_order(self):
+        self.mockClass.delete_item_from_order = MagicMock(return_value=())
+        assert_that(self.mockClass.delete_item_from_order(2,3)).is_equal_to(())
