@@ -60,3 +60,6 @@ class TestsMock(unittest.TestCase):
     def test_magicMockClass_edit_order(self):
         self.mockClass.edit_order = MagicMock(return_value=(1,3))
         assert_that(self.mockClass.edit_order(1,3)).is_equal_to((1,3))
+    def test_magicMockClass_edit_client(self):
+        self.mockClass.edit_client = MagicMock(return_value=("bob","bobin","b@b.com"))
+        assert_that(self.mockClass.edit_client("bob","bobin","b@b.com")).is_equal_to(("bob","bobin","b@b.com"))
