@@ -30,21 +30,24 @@ class TestsMock(unittest.TestCase):
     def test_magicMockClass_get_order_by_id(self):
         self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2)])
-    def test_get_client_orders_by_id(self):
+    def test_magicMockClass_get_client_orders_by_id(self):
         self.mockClass.get_order_by_id = MagicMock(return_value=[(1,2),(1,3)])
         assert_that(self.mockClass.get_order_by_id(2)).is_equal_to([(1,2),(1,3)])
-    def test_get_client_by_id(self):
+    def test_magicMockClass_get_client_by_id(self):
         self.mockClass.get_client_by_id = MagicMock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
         assert_that(self.mockClass.get_client_by_id(7)).is_equal_to((7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
-    def test_get_item_by_id(self):
+    def test_magicMockClass_get_item_by_id(self):
         self.mockClass.get_client_by_id = MagicMock(return_value=(709, "cosiek", 177.0))
         assert_that(self.mockClass.get_client_by_id(709)).is_equal_to((709, "cosiek", 177.0))
-    def test_add_item(self):
+    def test_magicMockClass_add_item(self):
         self.mockClass.add_item = MagicMock(return_value=(709, "cosiek", 177.0))
         assert_that(self.mockClass.add_item()).is_equal_to((709, "cosiek", 177.0))
-    def test_add_client(self):
+    def test_magicMockClass_add_client(self):
         self.mockClass.add_client = MagicMock(return_value=(7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
         assert_that(self.mockClass.add_client()).is_equal_to((7, "Bob", "Bobinovich", "BobMonkeyGmailCom"))
-    def add_item_to_order(self):
+    def test_magicMockClass_add_item_to_order(self):
         self.mockClass.add_client = MagicMock(return_value=())
         assert_that(self.mockClass.add_client(2,3)).is_equal_to(())
+    def test_magicMockClass_add_order(self):
+        self.mockClass.add_order = MagicMock(return_value=(2,3))
+        assert_that(self.mockClass.add_order()).is_equal_to((2,3))
